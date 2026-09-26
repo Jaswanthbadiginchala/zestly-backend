@@ -8,11 +8,15 @@ import org.springframework.web.bind.annotation.*;
 import com.example.demo.dto.LoginRequest;
 import com.example.demo.entity.User;
 import com.example.demo.service.UserService;
-
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @RestController
 @RequestMapping("/api/users")
-@CrossOrigin(origins="*")
+@CrossOrigin(
+	    origins = "http://localhost:5174",
+	    methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE, RequestMethod.OPTIONS}
+	)
 public class UserController {
 
     @Autowired
